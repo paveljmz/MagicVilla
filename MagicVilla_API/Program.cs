@@ -1,3 +1,4 @@
+using MagicVilla_API;
 using MagicVilla_API.Datos;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
 { option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });// relaciona clase dbcontext con la cadena de conexion y con el motor de base de datos en este caso mandamos a llamar a nuestro metodo defaultConnection para traer la cadena que se creo en appsettings.json
 
-
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
